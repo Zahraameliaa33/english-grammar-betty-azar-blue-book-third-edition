@@ -196,6 +196,41 @@
     </footer>
   </div>
 
+  <!-- Modal Overlay -->
+<div id="chapterModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-tags">
+        <span id="modalLevel" class="tag-level">Intermediate</span>
+        <span id="modalCategory" class="tag-area">Tenses</span>
+      </div>
+      <button id="closeModal" class="btn-close">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <h2 id="modalTitle">Chapter Title</h2>
+      <p id="modalDesc">Detailed explanation goes here...</p>
+      
+      <div class="modal-meta-grid">
+        <div class="m-meta">
+          <span>Range</span>
+          <strong id="modalRange">1-1</strong>
+        </div>
+        <div class="m-meta">
+          <span>Status</span>
+          <strong style="color: #34c759;">Available</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+  <button id="btnCancel" class="btn-secondary">Cancel</button>
+  <!-- Gunakan tag <a> agar bisa berfungsi sebagai link -->
+  <a href="#" id="btnLearn" class="btn-primary">Start Learning</a>
+</div>
+  </div>
+</div>
+
   <script src="js/homepage/homepage.js"></script>
 </body>
 </html>
