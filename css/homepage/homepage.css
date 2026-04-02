@@ -557,9 +557,7 @@ cite {
   padding: 18px 0 8px;
 }
 
-/* =========================
-   CHAPTER GROUP (NEW)
-========================= */
+
 /* =========================
    GROUP SYSTEM (FINAL)
 ========================= */
@@ -572,62 +570,52 @@ cite {
   margin-top: 12px;
 }
 
-/* HEADER (title + range) */
+
+/* HEADER (Container) */
 .group-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px 10px;
+  justify-content: space-between; /* Ini yang bikin Range pindah ke kanan */
+  align-items: flex-end;          /* Menyamakan posisi bawah teks */
+  padding: 0 24px 12px;           /* Beri ruang sedikit untuk garis */
+  position: relative;
 }
 
-/* TITLE */
+/* Gaya Judul (Kiri) */
 .group-title {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-sub);
-  position: relative;
 }
 
-/* subtle Apple underline */
-.group-title::after {
+/* Gaya Range (Kanan) */
+.group-range {
+  font-size: 0.72rem;           /* Sedikit lebih kecil agar manis */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-sub);
+  opacity: 0.5;                 /* Sedikit lebih pudar agar tidak berebut perhatian dengan judul */
+  text-transform: uppercase;
+}
+
+/* Garis bawah tetap di kiri (di bawah Judul saja) */
+.group-header::after {
   content: "";
-  display: block;
+  position: absolute;
+  left: 24px;
+  bottom: 4px;
   width: 32px;
   height: 2px;
-  margin-top: 6px;
   border-radius: 2px;
-  background: rgba(0, 113, 227, 0.5);
+  background: rgba(0, 113, 227, 0.4);
 }
 
-/* RANGE TAG */
-.group-range {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-sub);
-  background: rgba(0, 0, 0, 0.04);
-  padding: 6px 12px;
-  border-radius: 999px;
-  letter-spacing: 0.08em;
-  transition: 0.2s ease;
-}
-
-/* hover = subtle feedback */
+/* Reset hover lama agar tidak merusak style baru */
 .chapter-group:hover .group-range {
-  background: rgba(0, 113, 227, 0.08);
-  color: var(--azar-blue-dark);
-}
-
-/* FIX spacing row pertama */
-.chapter-group .chapter-row {
-  border-top: none;
-}
-
-/* OPTIONAL: soft separation antar group */
-.chapter-group + .chapter-group {
-  border-top: 1px dashed rgba(0, 0, 0, 0.04);
-  padding-top: 18px;
+  background: transparent;
+  color: var(--text-sub);
+  opacity: 0.8;
 }
 
 .chapter-row {
@@ -670,6 +658,31 @@ cite {
   color: rgba(0, 0, 0, 0.25);
   font-size: 1.2rem;
   padding-left: 10px;
+}
+
+.chapter-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* RANGE TAG (this is your new element) */
+.chapter-range {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+/* hover feedback */
+.chapter-row:hover .chapter-range {
+  background: rgba(0, 113, 227, 0.08);
+  color: var(--azar-blue-dark);
 }
 
 .empty-state {
