@@ -52,7 +52,6 @@ const groupedChapters = {
    DOM
 ========================= */
 const listContainer = document.getElementById("grammarList");
-const searchInput = document.getElementById("searchInput");
 const chips = document.querySelectorAll(".chip");
 
 let activeFilter = "all";
@@ -132,25 +131,16 @@ function renderChapters(data) {
 /* =========================
    SEARCH + FILTER
 ========================= */
-function getFilteredChapters() {
-  const term = searchInput.value.trim().toLowerCase();
-
-  return chapters.filter((chapter) => {
-    const matchesSearch =
-      chapter.title.toLowerCase().includes(term) ||
-      chapter.desc.toLowerCase().includes(term);
-
-    const matchesCategory =
-      activeFilter === "all" || chapter.category === activeFilter;
-
-    return matchesSearch && matchesCategory;
-  });
-}
 
 function updateActiveChip(filter) {
   chips.forEach((chip) => {
     chip.classList.toggle("active", chip.dataset.filter === filter);
   });
+}
+
+function getFilteredChapters() {
+  if (activeFilter === "all") return chapters; // tampilkan semua
+  return chapters.filter(ch => ch.category === activeFilter);
 }
 
 chips.forEach((chip) => {
@@ -161,9 +151,7 @@ chips.forEach((chip) => {
   });
 });
 
-searchInput.addEventListener("input", () => {
-  renderChapters(getFilteredChapters());
-});
+
 
 /* =========================
    EVENTS (CLICK ROW)
