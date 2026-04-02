@@ -47,37 +47,7 @@ input {
   overflow-x: hidden;
 }
 
-/* NAVBAR */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  background: rgba(255, 255, 255, 0.75);
-  border-bottom: 1px solid var(--border);
-}
 
-.nav-inner {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--text-main);
-}
-
-.logo span {
-  color: var(--azar-blue);
-}
 
 
 /* HERO SECTION */
